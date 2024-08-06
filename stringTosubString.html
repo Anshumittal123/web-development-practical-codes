@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substring Extractor</title>
+</head>
+<body>
+    <script>
+        function getSubstring() {
+            const inputString = prompt("Enter a string:");
+
+            const startIndex = parseInt(prompt("Enter the start index:"), 10);
+
+  
+            const endIndex = parseInt(prompt("Enter the end index:"), 10);
+            if (isNaN(startIndex) || isNaN(endIndex) || startIndex < 0 || endIndex > inputString.length || startIndex >= endIndex) {
+                alert("Invalid indices. Please try again.");
+                return;
+            }
+
+            const substring = inputString.substring(startIndex, endIndex);
+
+            alert(`The substring from index ${startIndex} to ${endIndex} is: ${substring}`);
+        }
+
+        getSubstring();
+    </script>
+</body>
+</html>

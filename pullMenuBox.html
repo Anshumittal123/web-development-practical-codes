@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pull Down Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f8ff; /* Light blue background */
+    }
+
+    .menu-container {
+        margin-bottom: 20px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    select {
+        padding: 5px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    #selected-option {
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+<body>
+    <div class="menu-container">
+        <label for="menu">Choose an option:</label>
+        <select id="menu" onchange="handleSelection()">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+    </div>
+    <p id="selected-option"></p>
+    <script>
+        function handleSelection() {
+        const menu = document.getElementById('menu');
+        const selectedOption = menu.options[menu.selectedIndex].text;
+        document.getElementById('selected-option').textContent = `You selected: ${selectedOption}`;
+    }
+    </script>
+</body>
+</html>

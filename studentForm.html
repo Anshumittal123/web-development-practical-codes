@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student From</title>
+</head>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container{
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+    }h1{
+        text-align: center;
+        color: #333;
+    }
+    input{
+        padding: 8px 15px;
+        border-radius: 10px;
+        border: 1px solid #000;
+        margin-bottom: 20px;
+    }
+    select{
+        margin-bottom: 20px;
+        padding: 8px 15px;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    button{
+        padding: 10px 15px;
+        background-color: #00165f;
+        color: #f5f5f5;
+        font-weight: 600;
+        border: 1px solid #f5f5f5;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    button:hover{
+        opacity: 0.8;
+    }
+</style>
+<body>
+    <!-- Student From -->
+    <div class="container">
+        <h1>Student Registration Form</h1>
+        <form id="Registration-form">
+            <label for="name">Name: 
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <span class="error" id="name-error"></span>
+            </label>
+            <label for="address">Address: 
+                <input type="text" id="address" placeholder="Enter your address" required>
+                <span class="error" id="address-error"></span>
+            </label>
+            <label for="sex" class="sex">Sex:
+                <input type="radio" name="sex" id="Male" value="Male" required checked>
+                <label for="male">Male</label>
+                <input type="radio" name="sex" id="Female" value="Female" checked>
+                <label for="female">Female</label>
+            </label>
+
+            <label for="city">City:
+                <select name="city" id="city" required>
+                    <option value="New Delhi">New Delhi</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                </select>
+            </label>
+
+            <label for="course">Cousre: 
+                <select name="course" id="course" required>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="Btech">Btech</option>
+                    <option value="Mtech">Mtech</option>
+                </select>
+            </label>
+
+            <label for="mobileNo">Moblie No:
+                <input type="text" id="mobileNo" placeholder="Enter your mobile No" required>
+                <span class="error" id="mobile-error"></span>
+            </label>
+            <button id="submit">Submit</button>
+            <button id="reset">Reset</button>
+        </form>
+    </div>
+
+    <script>
+         document.getElementById("submit").addEventListener('click', (e)=>{
+            e.preventDefault();
+            let isValid = true;
+            document.querySelectorAll('.error').forEach((element) => {
+                element.textContent = '';
+            });
+            const name = document.getElementById("name").value;
+            if (name === '') {
+                document.getElementById('name-error').textContent = 'Name is required.';
+                isValid = false;
+            }
+            const address = document.getElementById("address").value;
+            if (address === '') {
+                document.getElementById('address-error').textContent = 'Email is required.';
+                isValid = false;
+            }
+            const sex = document.getElementsByClassName("sex").value;
+            let gender;
+            if(sex === "Male"){
+                gender = document.getElementById("Male").value;
+            }else{
+                gender = document.getElementById("Female").value;
+            }
+            const city= document.getElementById("city").value;
+            const course = document.getElementById("course").value;
+            const mobileNo = document.getElementById("mobileNo").value;
+            if (mobileNo === '') {
+                document.getElementById('mobile-error').textContent = 'Phone number is required.';
+                isValid = false;
+            }
+            console.log("Name: ",name);
+            console.log("Address: ",address);
+            console.log("Gender: ",gender);
+            console.log("City: ",city);
+            console.log("Course: ",course);
+            console.log("Mobile No: ", mobileNo);
+        });
+
+        document.getElementById('reset').addEventListener("click", ()=>{
+            document.getElementById("name").innerText = '';
+            document.getElementById("address").innerText = '';
+            document.getElementById("Male").checked =  "false";
+            document.getElementById("Female").checked =  "false";
+            document.getElementById("mobileNo").innerText = '';
+        });
+    </script>
+</body>
+</html>

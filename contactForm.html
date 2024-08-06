@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container{
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+    }
+    h1{
+        text-align: center;
+        color: #333;
+    }
+    input[type="text"], input[type="email"], textarea{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 15px;
+        background-color: #00165f;
+        color: #f5f5f5;
+        font-weight: 600;
+        border: 1px solid #f5f5f5;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    button:hover{
+        opacity: 0.8;
+    }
+</style>
+<body>
+    <!-- Contact Form -->
+    <div class="container">
+        <h1>Contact Form</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            <br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address">
+            <br>
+            <label for="comment">Comment:</label>
+            <textarea id="comment" id="comment" name="comment" rows="4" required></textarea>
+            <br>
+            <label for="check"><input type="checkbox" id="checkbox"> Would you like to join email list?</label>
+            <br>
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("submit").addEventListener('click', (e)=>{
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+            const comment = document.getElementById("comment").value;
+            const ismailList= document.getElementById("checkbox").value;
+            console.log("Name: ",name);
+            console.log("Email: ",email);
+            console.log("Address: ",address);
+            console.log("comment: ",comment);
+            console.log("isMailList: ",ismailList==="on"?"Yes":"No");
+        });
+    </script>
+</body>
+</html>
